@@ -1,19 +1,4 @@
 package suchen.ui.view;
-/*
-public class SuchView {
-
-    public SuchView() {
-        SuchControl suchen = new SuchControl();
-    }
-
-    public void show() {
-        System.out.println("Suche nach (1) Name (2) Nummer");
-    }
-
-}
-*/
-
-
 import java.util.ArrayList;
 
 import suchen.al.EinkaeuferIn;

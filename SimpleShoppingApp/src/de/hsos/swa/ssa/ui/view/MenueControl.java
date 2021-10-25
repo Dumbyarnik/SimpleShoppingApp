@@ -3,11 +3,11 @@ package ui.view;
 import java.util.Scanner;
 import suchen.ui.view.*;
 public class MenueControl {
-    SuchenStartView suchenStartView;
     Scanner scanner;
+    SuchenStartControl suchenStartControl;
 
     MenueControl() {
-        this.suchenStartView = new SuchenStartView();
+        this.suchenStartControl = new SuchenStartControl(); 
         this.scanner = new Scanner(System.in);
     }
 
@@ -23,7 +23,8 @@ public class MenueControl {
                 finish = true;
                 break;
             case(1):
-                suchenStartView.run();
+                //suchenStartView.run();
+                suchenStartControl.run();
                 break;
             case(2):
                 // Warenkorb
