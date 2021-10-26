@@ -12,8 +12,6 @@ import suchen.dal.WarenRepository;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.math.BigDecimal;
-import java.sql.*;
 
 /*
 Connecting to: jdbc:mysql://localhost:3306/simpleshop?user=root&password=test&serverTimezone=UTC
@@ -22,7 +20,7 @@ java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/
 
 public class Verbindung implements DataBase {
 
-    private static String CONN = "jdbc:mysql://localhost:3306/SimpleShop"; // hier bitte link zur Datenbank eingeben
+    //private static String CONN = "jdbc:mysql://localhost:3306/SimpleShop"; // hier bitte link zur Datenbank eingeben
 
     // Logins
     static final String USER = "root"; // hier User
@@ -299,22 +297,22 @@ public class Verbindung implements DataBase {
             dbc.setAutoCommit(false);
             String query1 = "Update simpleshop.ware Set warenname= '"+ args[1] +"' Where warennr = '"+ args[0]+"'";
             Statement stmt = dbc.createStatement();
-            int count = stmt.executeUpdate(query1);
+            stmt.executeUpdate(query1);
             String query2 = "Update simpleshop.ware Set ware_beschreibung= '"+ args[2] +"' Where warennr = '"+ args[0]+"'";
             Statement stmt2 = dbc.createStatement();
-            int count2 = stmt2.executeUpdate(query2);
+            stmt2.executeUpdate(query2);
             String query3 = "Update simpleshop.ware Set ware_typ= '"+ args[3] +"' Where warennr = '"+ args[0]+"'";
             Statement stmt3 = dbc.createStatement();
-            int count3 = stmt3.executeUpdate(query3);
+            stmt3.executeUpdate(query3);
             String query4 = "Update simpleshop.ware Set ware_preis= '"+ args[4] +"' Where warennr = '"+ args[0]+"'";
             Statement stmt4 = dbc.createStatement();
-            int count4 = stmt4.executeUpdate(query4);
+            stmt4.executeUpdate(query4);
             String query5 = "Update simpleshop.ware Set ware_einheit= '"+ "EUR" +"' Where warennr = '"+ args[0]+"'";
             Statement stmt5 = dbc.createStatement();
-            int count5 = stmt5.executeUpdate(query5);
+            stmt5.executeUpdate(query5);
             String query6 = "Update simpleshop.ware Set ware_einheit= '"+ args[6] +"' Where warennr = '"+ args[0]+"'";
             Statement stmt6 = dbc.createStatement();
-            int count6 = stmt6.executeUpdate(query6);
+            stmt6.executeUpdate(query6);
 /*
             Statement stmt = dbc.createStatement();
             int count = stmt.executeUpdate(ppStmt2);

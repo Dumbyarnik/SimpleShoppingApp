@@ -9,25 +9,22 @@ import suchen.bl.Ware;
 public class AuswahlControl {
     Scanner keyboard;
     WaehleWare hinzufuegenService;
+    AuswahlView auswahlView;
    
     public AuswahlControl(WaehleWare service){
-         hinzufuegenService = service;
-         keyboard = new Scanner(System.in);
+        hinzufuegenService = service;
+        keyboard = new Scanner(System.in);
+        this.auswahlView = new AuswahlView();
     }
 
-    /*
-    *   Gibt View den Zustand des Controllers Zurück: true => Finish 
-    */
-    public boolean run(ArrayList<Ware> data){
-         boolean finish = true;
-         int input = keyboard.nextInt();
+    
+    public void run(ArrayList<Ware> data){
+        auswahlView.run(data);
+        int input = keyboard.nextInt();
 
-         if (input == 0) {
-              finish = true;
-         }
-         else if (input > 0 && input <= data.size()) {
-                   hinzufuegenService.wareZuWarenkorbHinzufuegen(data.get(input - 1));
-              }
-         return finish;
+        if (input == 0) { return; }
+        else if (input > 0 && input <= data.size()) {
+            hinzufuegenService.wareZuWarenkorbHinzufuegen(data.get(input - 1));
+        }
     }
 }
