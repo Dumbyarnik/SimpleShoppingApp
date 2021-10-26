@@ -1,24 +1,12 @@
 package KatalogVerwalten;
 
 import java.util.ArrayList;
-
-import datenbank.DataBase;
 import suchen.bl.Ware;
 
 public class ReadView {
     ReadControl control;
     
-    public ReadView(DataBase db){
-        control = new ReadControl(db);
-    }
-    
-    public ArrayList<Ware> run(){
-        do {   
-            menueAnzeigen();
-        } while(!control.run());
-
-        suchergebnissAnzeigen();
-        return control.getSuchergebniss();
+    public ReadView(){
     }
 
     public void menueAnzeigen() {
@@ -28,9 +16,7 @@ public class ReadView {
         System.out.println("Geben Sie eine Suchbegriff oder Warennummer zum suchen ein");
     }
 
-    private void suchergebnissAnzeigen() {
-        ArrayList<Ware> waren = control.getSuchergebniss();
-        
+    public void suchergebnissAnzeigen(ArrayList<Ware> waren) {
         if (waren.size() == 0) {
             wareUnbekanntAnzeigen();
         }
@@ -40,15 +26,15 @@ public class ReadView {
         }
     }
 
-    public void wareAnzeigen(Ware ware) {
+    private void wareAnzeigen(Ware ware) {
         System.out.println("------------------------------------------------------------");
         System.out.println("Warennummer : " + ware.getWarennummer());
-        System.out.println("Name        :        " + ware.getName());
+        System.out.println("Name        : " + ware.getName());
         System.out.println("Preis       : " + ware.getPreis());
         System.out.println("Beschreibung: " + ware.getBeschreibung());
     }
 
-    public void wareUnbekanntAnzeigen() {
+    private void wareUnbekanntAnzeigen() {
         System.out.println("Leider konnte kein Produkt zu ihrer Suchanfrage gefunden werden :(");
     }
 }

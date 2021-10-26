@@ -1,12 +1,10 @@
 package KatalogVerwalten;
 
-import datenbank.DataBase;
-
 public class CreateView {
     CreateControl control;
     
-    public CreateView(DataBase db) {
-        control = new CreateControl(db);
+    public CreateView() {
+        //control = new CreateControl(db);
     }
     
     public void run() {   
