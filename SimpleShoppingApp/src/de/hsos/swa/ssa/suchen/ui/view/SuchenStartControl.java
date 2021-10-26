@@ -12,6 +12,7 @@ public class SuchenStartControl {
     AuswahlView auswahlView;
     Scanner keyboard;
     SuchenStartView suchenStartView;
+    SuchControl suchControl;
     
     EinkaeuferIn einkaeuferIn;
     HoleWarenkorb warenkorbService;
@@ -21,9 +22,10 @@ public class SuchenStartControl {
     {
         this.einkaeuferIn = new EinkaeuferIn();
         this.suchenStartView = new SuchenStartView();
+        this.suchControl = new SuchControl(einkaeuferIn);
         warenkorbService = einkaeuferIn;
         einkaeuferIn.holeWarenkorb();
-        suchView = new SuchView(einkaeuferIn);
+        //suchView = new SuchView(einkaeuferIn);
         pruefView = new PruefView(einkaeuferIn);
         auswahlView = new AuswahlView(einkaeuferIn);
         keyboard = new Scanner(System.in);
@@ -48,7 +50,7 @@ public class SuchenStartControl {
                     finish = true;
                     break;
                 case(1):
-                    data = suchView.run();
+                    data = suchControl.run();
                     break;
                 case(2):
                     if (hasSuchdaten()) {
