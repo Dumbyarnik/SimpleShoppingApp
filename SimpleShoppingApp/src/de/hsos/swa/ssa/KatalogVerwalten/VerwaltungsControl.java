@@ -7,9 +7,10 @@ import datenbank.Verbindung;
 public class VerwaltungsControl {
     VerwaltungsView verwaltungsView;
 
+    ReadControl readControl;
+
     CreateView ctlView;
     UpdateView updView;
-    ReadView rdView;
     DeleteView delView;
     Scanner scanner;
     DataBase db;
@@ -20,9 +21,10 @@ public class VerwaltungsControl {
 
         this.verwaltungsView = new VerwaltungsView();
 
+        this.readControl = new ReadControl(db);
+
         this.ctlView = new CreateView(db);
         this.updView = new UpdateView(db);
-        this.rdView = new ReadView(db);
         this.delView = new DeleteView(db);
         this.scanner = new Scanner(System.in);
     }
@@ -44,7 +46,7 @@ public class VerwaltungsControl {
                     ctlView.run();
                     break;
                 case(2): //Read
-                    rdView.run();
+                    readControl.run();
                     break;
                 case(3): //Update
                     updView.run();

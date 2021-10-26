@@ -10,32 +10,37 @@ public class ReadControl {
     Scanner keyboard = new Scanner(System.in);
     DataBase db;
     ArrayList<Ware> suchErgebnis;
+    ReadView readView;
 
     public ReadControl(DataBase db_){
-         db = db_;
-         suchErgebnis = new ArrayList<>();
+        db = db_;
+        suchErgebnis = new ArrayList<>();
+        readView = new ReadView();
     }
 
     /*
     *   Gibt View den Zustand des Controllers Zurück: true => Finish 
     */
-    public boolean run(){
+    public ArrayList<Ware> run(){
+
+        readView.menueAnzeigen();
+
         String input = keyboard.nextLine();
         
         try {
             long numInput = Long.parseLong(input);
-            
             if (numInput == 0) {
-                return true;
+                return this.getSuchergebniss();
+            }
+            suchErgebnis = db.selectWareNummer(numInput);
+            }
+            catch (NumberFormatException e) { 
+                suchErgebnis = db.selectWarenName(input); 
             }
 
-            suchErgebnis = db.selectWareNummer(numInput);
-         }
-         catch (NumberFormatException e)
-         {
-            suchErgebnis = db.selectWarenName(input);
-         }
-        return true;
+        readView.suchergebnissAnzeigen(this.getSuchergebniss());
+
+        return this.suchErgebnis;
     }
 
     public ArrayList<Ware> getSuchergebniss() {
