@@ -1,12 +1,10 @@
 package KatalogVerwalten;
 
-import datenbank.DataBase;
-
 public class UpdateView {
     UpdateControl control;
 
-    public UpdateView(DataBase db) {
-        control = new UpdateControl(db);
+    public UpdateView() {
+        //control = new UpdateControl(db);
     }
 
     public void run() {
