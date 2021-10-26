@@ -12,36 +12,39 @@ public class PruefControl {
     PruefeWare pruefService;
     ArrayList<Produktinformation> produktinfos;
 
+    PruefView pruefView;
+
     public PruefControl(PruefeWare pruefWare_){
          keyboard = new Scanner(System.in);
          produktinfos = new ArrayList<>();
          pruefService = pruefWare_;
+         pruefView = new PruefView();
     }
 
     /*
     *   Gibt View den Zustand des Controllers Zurück: true => Finish 
     */
-   public boolean run(ArrayList<Ware> data){
-    boolean finish = false;
+     public void run(ArrayList<Ware> data){
 
-    while(keyboard.hasNext() && !keyboard.hasNextInt()) {
-          keyboard.nextLine();
+          pruefView.menueAnzeigen(data);
+
+          while(keyboard.hasNext() && !keyboard.hasNextInt()) {
+                    keyboard.nextLine();
+               }
+               int input = keyboard.nextInt();
+               keyboard.nextLine();
+
+          if (input == 0) { return; }
+          else if (input > 0 && input <= data.size()) {
+                    //finish = false;
+                    produktinfos = new ArrayList<>();
+                    produktinfos = pruefService.holeDetailinformation(data.get(input - 1));
+
+                    pruefView.produktinfosAnzeigen(this.getProduktinfos());
+               }
      }
-     int input = keyboard.nextInt();
-     keyboard.nextLine();
 
-    if (input == 0) {
-         finish = true;
-    }
-    else if (input > 0 && input <= data.size()) {
-              finish = false;
-              produktinfos = new ArrayList<>();
-              produktinfos = pruefService.holeDetailinformation(data.get(input - 1));
-         }
-    return finish;
-    }
-
-    public ArrayList<Produktinformation> getProduktinfos() {
-         return produktinfos;
-    }
+     public ArrayList<Produktinformation> getProduktinfos() {
+          return produktinfos;
+     }
 }

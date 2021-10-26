@@ -7,12 +7,15 @@ import java.util.ArrayList;
 import suchen.bl.Ware;
 
 public class SuchenStartControl {
+
+    SuchControl suchControl;
+    PruefControl pruefControl;
+
     SuchView suchView;
-    PruefView pruefView;
     AuswahlView auswahlView;
     Scanner keyboard;
     SuchenStartView suchenStartView;
-    SuchControl suchControl;
+    
     
     EinkaeuferIn einkaeuferIn;
     HoleWarenkorb warenkorbService;
@@ -21,12 +24,13 @@ public class SuchenStartControl {
     public SuchenStartControl()
     {
         this.einkaeuferIn = new EinkaeuferIn();
-        this.suchenStartView = new SuchenStartView();
+        this.warenkorbService = einkaeuferIn;
+        this.einkaeuferIn.holeWarenkorb();
+
         this.suchControl = new SuchControl(einkaeuferIn);
-        warenkorbService = einkaeuferIn;
-        einkaeuferIn.holeWarenkorb();
-        //suchView = new SuchView(einkaeuferIn);
-        pruefView = new PruefView(einkaeuferIn);
+        this.pruefControl = new PruefControl(einkaeuferIn);
+
+        this.suchenStartView = new SuchenStartView();
         auswahlView = new AuswahlView(einkaeuferIn);
         keyboard = new Scanner(System.in);
     }
@@ -54,7 +58,7 @@ public class SuchenStartControl {
                     break;
                 case(2):
                     if (hasSuchdaten()) {
-                        pruefView.run(data);
+                        pruefControl.run(data);
                     } 
                     break;
                 case(3):

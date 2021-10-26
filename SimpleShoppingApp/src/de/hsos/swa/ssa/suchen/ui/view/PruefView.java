@@ -7,10 +7,8 @@ import suchen.bl.Produktinformation;
 import suchen.bl.Ware;
 
 public class PruefView {
-    PruefControl control;
 
-    public PruefView(EinkaeuferIn einkaeuferIn){
-        control = new PruefControl(einkaeuferIn);
+    public PruefView(){
     }
     
     /*
@@ -18,12 +16,12 @@ public class PruefView {
     */
 
     public void run(ArrayList<Ware> data){
-        menueAnzeigen(data);
+        /*menueAnzeigen(data);
 
         while(!control.run(data)) {  
             produktinfosAnzeigen();
             menueAnzeigen(data);
-        }
+        }*/
     }
 
     public void menueAnzeigen(ArrayList<Ware> data) {
@@ -40,8 +38,8 @@ public class PruefView {
         }
     }
 
-    private void produktinfosAnzeigen() {
-        ArrayList<Produktinformation> infos = control.getProduktinfos();
+    public void produktinfosAnzeigen(ArrayList<Produktinformation> infos) {
+        //ArrayList<Produktinformation> infos = control.getProduktinfos();
         for(Produktinformation info: infos) {
             System.out.println(info);
         }
