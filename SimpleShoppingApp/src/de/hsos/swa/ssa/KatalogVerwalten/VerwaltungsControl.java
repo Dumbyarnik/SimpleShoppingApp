@@ -10,8 +10,8 @@ public class VerwaltungsControl {
     ReadControl readControl;
     CreateControl createControl;
     UpdateControl updateControl;
+    DeleteControl deleteControl;
 
-    DeleteView delView;
     Scanner scanner;
     DataBase db;
 
@@ -24,8 +24,8 @@ public class VerwaltungsControl {
         this.readControl = new ReadControl(db);
         this.createControl = new CreateControl(db);
         this.updateControl = new UpdateControl(db);
+        this.deleteControl = new DeleteControl(db);
 
-        this.delView = new DeleteView(db);
         this.scanner = new Scanner(System.in);
     }
 
@@ -52,7 +52,7 @@ public class VerwaltungsControl {
                     updateControl.run();
                     break;
                 case(4): //Delete
-                    delView.run();
+                    deleteControl.run();
                     break;
                 case(5): //commit
                     db.commit();
