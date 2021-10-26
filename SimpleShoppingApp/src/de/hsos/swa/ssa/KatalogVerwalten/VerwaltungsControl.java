@@ -8,8 +8,8 @@ public class VerwaltungsControl {
     VerwaltungsView verwaltungsView;
 
     ReadControl readControl;
+    CreateControl createControl;
 
-    CreateView ctlView;
     UpdateView updView;
     DeleteView delView;
     Scanner scanner;
@@ -22,8 +22,8 @@ public class VerwaltungsControl {
         this.verwaltungsView = new VerwaltungsView();
 
         this.readControl = new ReadControl(db);
+        this.createControl = new CreateControl(db);
 
-        this.ctlView = new CreateView(db);
         this.updView = new UpdateView(db);
         this.delView = new DeleteView(db);
         this.scanner = new Scanner(System.in);
@@ -43,7 +43,7 @@ public class VerwaltungsControl {
                 case(0):
                     return;
                 case(1): //Create
-                    ctlView.run();
+                    createControl.run();
                     break;
                 case(2): //Read
                     readControl.run();
