@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+import KatalogVerwalten.VerwaltungsControl;
 import KatalogVerwalten.VerwaltungsView;
 import ui.view.MenueControl;
 
@@ -10,7 +11,7 @@ public class App {
       Scanner keyboard = new Scanner(System.in);
 
       MenueControl menueControl = new MenueControl();
-      VerwaltungsView v = new VerwaltungsView();
+      VerwaltungsControl verwaltungsControl = new VerwaltungsControl();
 
       System.out.println("\n");
       System.out.println("Drücken sie 0 für Simple Shopping");
@@ -23,7 +24,7 @@ public class App {
               menueControl.run();
               break;
             case(1): 
-              v.run();
+              verwaltungsControl.run();
               break;
       };
       keyboard.close();

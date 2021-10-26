@@ -5,6 +5,8 @@ import datenbank.DataBase;
 import datenbank.Verbindung;
 
 public class VerwaltungsControl {
+    VerwaltungsView verwaltungsView;
+
     CreateView ctlView;
     UpdateView updView;
     ReadView rdView;
@@ -12,9 +14,12 @@ public class VerwaltungsControl {
     Scanner scanner;
     DataBase db;
 
-    VerwaltungsControl() {
+    public VerwaltungsControl() {
         db = new Verbindung();
         db.keepconnected();
+
+        this.verwaltungsView = new VerwaltungsView();
+
         this.ctlView = new CreateView(db);
         this.updView = new UpdateView(db);
         this.rdView = new ReadView(db);
@@ -25,31 +30,33 @@ public class VerwaltungsControl {
     /*
     *   Gibt View den Zustand des Controllers Zurück: true => Finish 
     */
-    public boolean run() {
-        boolean finish = false;
-        int input = scanner.nextInt();
+    public void run() {
+        int input;
 
-        switch(input){
-            case(0):
-                finish = true;
-                break;
-            case(1): //Create
-                ctlView.run();
-                break;
-            case(2): //Read
-            rdView.run();
-                break;
-            case(3): //Update
-            updView.run();
-                break;
-            case(4): //Delete
-                delView.run();
-                break;
-            case(5): //commit
-                db.commit();
-                break;
-        }
-        return finish;  
+        while(true){
+            verwaltungsView.run();
+            input = scanner.nextInt();
+
+            switch(input){
+                case(0):
+                    return;
+                case(1): //Create
+                    ctlView.run();
+                    break;
+                case(2): //Read
+                    rdView.run();
+                    break;
+                case(3): //Update
+                    updView.run();
+                    break;
+                case(4): //Delete
+                    delView.run();
+                    break;
+                case(5): //commit
+                    db.commit();
+                    break;
+            }
+        } 
     }
 }
    
