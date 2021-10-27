@@ -14,4 +14,8 @@ public class WareDTO {
         this.beschreibung = beschreibung;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
 }

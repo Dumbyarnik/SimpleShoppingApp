@@ -20,11 +20,20 @@ public class Warenkorb implements WarenkorbFuerSuche {
     @Override
     public void wareHinzufuegen(WareDTO ware) {
         inhalt.add(ware);
+    
+        this.printInhalt();
     }
 
     @Override
     public long gebeWarenkorbnummer() {
         return warenkorbNummer;
     }
+
+    private void printInhalt(){
+        for (WareDTO tmp : inhalt){
+            System.out.println(tmp.getName());
+        }
+    }
+
 
 }
