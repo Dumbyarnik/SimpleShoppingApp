@@ -1,4 +1,8 @@
-package KatalogVerwalten;
+/*
+    First menu in Verwaltung
+*/
+
+package katalogVerwalten;
 
 import java.util.Scanner;
 import datenbank.DataBase;
@@ -11,6 +15,7 @@ public class VerwaltungsControl {
     CreateControl createControl;
     UpdateControl updateControl;
     DeleteControl deleteControl;
+    AlleWarenControl alleWarenControl;
 
     Scanner scanner;
     DataBase db;
@@ -25,13 +30,12 @@ public class VerwaltungsControl {
         this.createControl = new CreateControl(db);
         this.updateControl = new UpdateControl(db);
         this.deleteControl = new DeleteControl(db);
+        alleWarenControl = new AlleWarenControl(db);
 
         this.scanner = new Scanner(System.in);
     }
 
-    /*
-    *   Gibt View den Zustand des Controllers Zurück: true => Finish 
-    */
+    
     public void run() {
         int input;
 
@@ -42,20 +46,23 @@ public class VerwaltungsControl {
             switch(input){
                 case(0):
                     return;
-                case(1): //Create
+                case(1): // Create
                     createControl.run();
                     break;
-                case(2): //Read
+                case(2): // Read
                     readControl.run();
                     break;
-                case(3): //Update
+                case(3): // Update
                     updateControl.run();
                     break;
-                case(4): //Delete
+                case(4): // Delete
                     deleteControl.run();
                     break;
-                case(5): //commit
+                case(5): // Commit
                     db.commit();
+                    break;
+                case(6): // alle Waren sehen
+                    alleWarenControl.run();
                     break;
             }
         } 

@@ -1,3 +1,7 @@
+/*
+    Class for managing the shopping carts
+*/
+
 package suchen.acl;
 
 import java.util.ArrayList;

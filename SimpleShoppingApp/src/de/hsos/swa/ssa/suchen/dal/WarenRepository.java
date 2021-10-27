@@ -46,8 +46,8 @@ public class WarenRepository implements Katalog {
     @Override
     public String toString() {
         return  ", warenrepo_beschreibung=" 
-        + warenrepo_beschreibung + ", warenreponame=" 
-        + warenreponame + ", warenreponr=" + warenreponr + "]";
+            + warenrepo_beschreibung + ", warenreponame=" 
+            + warenreponame + ", warenreponr=" + warenreponr + "]";
     }
 
     public ArrayList<Integer> getWarenreponr() {

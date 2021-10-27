@@ -1,3 +1,7 @@
+/*
+    Interface for all the functions database need
+*/
+
 package datenbank;
 
 import java.util.ArrayList;
@@ -9,7 +13,7 @@ public interface DataBase {
     
     public void keepconnected();
     public void commit();
-    public void selectWaren();
+    public ArrayList<Ware> selectWaren();
     public ArrayList<Ware> selectWarenName(String name);
     public ArrayList<Ware> selectWareNummer(long nr);
     public ArrayList<Produktinformation> selectProduktInfo(Ware ware);

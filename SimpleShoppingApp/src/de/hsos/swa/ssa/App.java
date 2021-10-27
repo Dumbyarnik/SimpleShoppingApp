@@ -1,16 +1,24 @@
+/*
+    Class for launching the app
+*/ 
+
 import java.util.Scanner;
 
-import KatalogVerwalten.VerwaltungsControl;
+import katalogVerwalten.VerwaltungsControl;
 import ui.view.MenueControl;
 
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        while(true){
-            Scanner keyboard = new Scanner(System.in);
+        Scanner keyboard;
 
+        while(true){
+            keyboard = new Scanner(System.in);
+
+            // Going to shopping menu
             MenueControl menueControl = new MenueControl();
+            // Going to databank menu
             VerwaltungsControl verwaltungsControl = new VerwaltungsControl();
 
             System.out.println("\n");
@@ -31,7 +39,6 @@ public class App {
                     verwaltungsControl.run();
                     break;
             };
-            //keyboard.close();
-        }  
+        }
     }
 }

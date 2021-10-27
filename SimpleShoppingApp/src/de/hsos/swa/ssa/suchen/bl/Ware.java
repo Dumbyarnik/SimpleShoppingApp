@@ -7,14 +7,12 @@ public class Ware {
     private String name;
     private String beschreibung;
     private String typ;
-    //private Geld geld;
     private double geld;
     private int repo;
     private ArrayList<Produktinformation> produktinformationen = new ArrayList<Produktinformation>();
   
-
-
-    public Ware(int _warennummer, String _name,  String _beschreibung, String _typ, double _geld, int _repo){
+    public Ware(int _warennummer, String _name,  String _beschreibung, 
+            String _typ, double _geld, int _repo){
         this.warennummer = _warennummer;
         this.name = _name;
         this.geld = (_geld);
@@ -27,32 +25,26 @@ public class Ware {
         return warennummer;
     }
 
-
     public String getName() {
         return name;
     }
-
 
     public double getPreis() {
         return geld;
     }
 
-
     public String getBeschreibung() {
         return beschreibung;
     }
-
 
     public String getTyp() {
         return typ;
     }
 
-
     public int getRepo() {
         return repo;
     }
  
-    
     @Override
     public String toString() {
         return "Ware [beschreibung=" + beschreibung + ", geld=" + geld + ", name=" + name + ", repo=" + repo + ", typ="
@@ -61,7 +53,7 @@ public class Ware {
 
     public ArrayList<Produktinformation> getProduktinformationen() {
         return this.produktinformationen;
-      }
+    }
     
     public void setProduktinformationen(ArrayList<Produktinformation> produktinformationen) {
         this.produktinformationen = produktinformationen;

@@ -1,4 +1,5 @@
 package suchen.acl;
+
 import tools.Warenkorb;
 
 public interface WarenkorbStaender {

@@ -1,3 +1,7 @@
+/*
+    Main Menu for searching the products
+*/
+
 package suchen.ui.view;
 
 import java.util.Scanner;
@@ -7,6 +11,7 @@ import java.util.ArrayList;
 import suchen.bl.Ware;
 
 public class SuchenStartControl {
+
     EinkaeuferIn einkaeuferIn;
     HoleWarenkorb warenkorbService;
     ArrayList<Ware> data = new ArrayList<>();
@@ -18,9 +23,6 @@ public class SuchenStartControl {
 
     SuchenStartView suchenStartView;
     
-    
-    
-
     public SuchenStartControl()
     {
         this.einkaeuferIn = new EinkaeuferIn();
@@ -40,8 +42,7 @@ public class SuchenStartControl {
         int input; 
 
         while (true){
-
-            // showing the menu 
+ 
             suchenStartView.run(this.hasSuchdaten());
             input = keyboard.nextInt();
 

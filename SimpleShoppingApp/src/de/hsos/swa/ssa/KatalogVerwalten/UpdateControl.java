@@ -1,4 +1,8 @@
-package KatalogVerwalten;
+/*
+    Menu for updating one product
+*/
+
+package katalogVerwalten;
 
 import java.util.Scanner;
 import datenbank.DataBase;
@@ -25,12 +29,16 @@ public class UpdateControl {
 
         System.out.println("Bitte zu aendernde WarenNummer eingeben:");
         this.setWarenNummer();
+
         System.out.println("Bitte Warenname eingeben:");
         this.setWarenname();
+
         System.out.println("Bitte Beschreibung eingeben:");
         this.setWarenBeschreibung();
+
         System.out.println("Bitte Warentyp eingeben:");
         this.setWarenTyp();
+
         System.out.println("Bitte Preis eingeben:");
         this.setWarenPreis();
 
@@ -45,7 +53,7 @@ public class UpdateControl {
         db.update(args);
     }
 
-    public void setWarenNummer() {
+    private void setWarenNummer() {
         while(keyboard.hasNext() && !keyboard.hasNextInt()) {
             keyboard.nextLine();
         }
@@ -53,19 +61,19 @@ public class UpdateControl {
         keyboard.nextLine();
 	}
 
-	public void setWarenBeschreibung() {
+	private void setWarenBeschreibung() {
         WarenBeschreibung = keyboard.nextLine();
 	}
 
-    public void setWarenname() {
+    private void setWarenname() {
         WarenName = keyboard.nextLine();
     }
 
-	public void setWarenTyp() {
+	private void setWarenTyp() {
           WarenTyp = keyboard.nextLine();
 	}
 
-    public void setWarenPreis() {
+    private void setWarenPreis() {
         while(keyboard.hasNext() && !keyboard.hasNextDouble()) {
             keyboard.nextLine();
         }

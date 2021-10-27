@@ -1,8 +1,11 @@
+/*
+    Menu for putting a product in Warenkorb
+*/
+
 package suchen.ui.view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import suchen.al.WaehleWare;
 import suchen.bl.Ware;
 

@@ -1,3 +1,7 @@
+/*
+    Service for putting the product in Warenkorb
+*/
+
 package suchen.al;
 
 import suchen.acl.WareDTO;
@@ -12,7 +16,7 @@ public class WarenkorbVerwalten {
 
     public WarenkorbVerwalten() {
         if (staender == null) {
-           staender = new WarenkorbStaenderAdapter();
+            staender = new WarenkorbStaenderAdapter();
         }
     }
 

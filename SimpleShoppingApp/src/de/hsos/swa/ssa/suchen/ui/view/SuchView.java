@@ -16,8 +16,7 @@ public class SuchView {
     }
 
     public void suchergebnissAnzeigen(ArrayList<Ware> waren) {
-        if (waren == null)
-            System.out.println("es ist null!");          
+              
         if (waren.isEmpty()) {
             wareUnbekanntAnzeigen();
         }

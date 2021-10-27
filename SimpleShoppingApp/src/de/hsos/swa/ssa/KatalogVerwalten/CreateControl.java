@@ -1,4 +1,8 @@
-package KatalogVerwalten;
+/*
+    Menu for creating a new product
+*/
+
+package katalogVerwalten;
 
 import java.util.Scanner;
 import datenbank.DataBase;
@@ -10,6 +14,7 @@ public class CreateControl {
     String WarenTyp;
     double WarenPreis;
     String WarenRepo = "1";
+    
     DataBase db;
 
     CreateView createView;
@@ -43,7 +48,6 @@ public class CreateControl {
     }
 
     private void setWarenname() {
-        System.out.println("this is the line - " + keyboard.nextLine());
         WarenName = keyboard.nextLine();
     }
 

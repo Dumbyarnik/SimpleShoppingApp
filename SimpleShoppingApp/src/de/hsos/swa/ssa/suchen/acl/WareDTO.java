@@ -1,6 +1,5 @@
 package suchen.acl;
 
-
 public class WareDTO {
   
     public long nummer;
@@ -13,6 +12,10 @@ public class WareDTO {
         this.name = name;
         this.preis = preis;
         this.beschreibung = beschreibung;
+    }
+
+    public String getName(){
+        return this.name;
     }
 
 }

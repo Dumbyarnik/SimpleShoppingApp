@@ -1,3 +1,7 @@
+/*
+    Service for searching the product
+*/
+
 package suchen.al;
 
 import java.util.ArrayList;
@@ -14,6 +18,7 @@ public class WarenSuchenUndPruefen {
         if(katalog == null)
             WarenSuchenUndPruefen.katalog = new WarenRepository();
     }
+    
     public ArrayList<Produktinformation> sucheProduktInfo(Ware ware){
         return katalog.gebeProduktinformation(ware);
     } 

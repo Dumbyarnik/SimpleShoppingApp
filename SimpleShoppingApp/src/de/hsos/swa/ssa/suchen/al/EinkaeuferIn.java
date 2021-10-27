@@ -1,10 +1,17 @@
+/*
+    Class for all the functions that buyer can do
+    - searching 
+    - putting them in Warenkorb
+    - getting the info
+*/
+
 package suchen.al;
 
 import suchen.acl.*;
 import suchen.bl.*;
 import tools.Warenkorb;
-
 import java.util.ArrayList;
+
 public class EinkaeuferIn implements HoleWarenkorb, PruefeWare, SucheWare, WaehleWare {
 
     private WarenkorbVerwalten warenkorbVerwaltung = new WarenkorbVerwalten();
@@ -14,8 +21,8 @@ public class EinkaeuferIn implements HoleWarenkorb, PruefeWare, SucheWare, Waehl
     @Override
     public boolean wareZuWarenkorbHinzufuegen(Ware ware) {
         if (warenkorb != null) {
-        warenkorbVerwaltung.wareHinzufuegen(ware, warenkorb);
-        return true;
+            warenkorbVerwaltung.wareHinzufuegen(ware, warenkorb);
+            return true;
         }
         return false;
     }
