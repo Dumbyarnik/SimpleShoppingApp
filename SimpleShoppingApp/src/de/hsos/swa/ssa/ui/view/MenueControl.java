@@ -1,10 +1,16 @@
+/*
+    Menu for shopping main menu one product
+*/
+
 package ui.view;
 
 import java.util.Scanner;
 import suchen.ui.view.*;
+
 public class MenueControl {
     Scanner scanner;
     SuchenStartControl suchenStartControl;
+
     MenueView menueView;
 
     public MenueControl() {
@@ -13,13 +19,9 @@ public class MenueControl {
         this.scanner = new Scanner(System.in);
     }
 
-    /*
-    *   Gibt View den Zustand des Controllers Zurück: true => Finish 
-    */
     public void run() {
-        int input;
 
-        
+        int input;
 
         while(true){
 
@@ -30,7 +32,6 @@ public class MenueControl {
                 case(0):
                     return;
                 case(1):
-                    //suchenStartView.run();
                     suchenStartControl.run();
                     break;
                 case(2):

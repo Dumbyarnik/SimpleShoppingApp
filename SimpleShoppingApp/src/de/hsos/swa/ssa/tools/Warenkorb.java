@@ -1,11 +1,11 @@
 package tools;
 
 import java.util.ArrayList;
-
 import suchen.acl.WareDTO;
 import suchen.acl.WarenkorbFuerSuche;
 
 public class Warenkorb implements WarenkorbFuerSuche {
+
     static long warenkorbNummer = 0;
     ArrayList<WareDTO> inhalt;
 
@@ -20,7 +20,6 @@ public class Warenkorb implements WarenkorbFuerSuche {
     @Override
     public void wareHinzufuegen(WareDTO ware) {
         inhalt.add(ware);
-
     }
 
     @Override

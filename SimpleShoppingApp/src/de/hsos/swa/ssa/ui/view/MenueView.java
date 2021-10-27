@@ -1,4 +1,5 @@
 package ui.view;
+
 public class MenueView {
     
     MenueView() {}

@@ -4,14 +4,9 @@ import java.util.ArrayList;
 import suchen.bl.Ware;
 
 public class AuswahlView {
-    AuswahlControl control;
     
-    public AuswahlView() {
-        //control = new AuswahlControl(einkaeuferIn);
-    }
-    
+        
     public void run(ArrayList<Ware> data){
-  
         System.out.println("Druecken sie 0 um zurück zu gehen");
         System.out.println("Waehle die jeweilige Nummer um Ware zum Warenkorb hinzuzufuegen:");
         warenAnzeigen(data);

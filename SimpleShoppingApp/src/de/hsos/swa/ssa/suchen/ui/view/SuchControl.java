@@ -1,3 +1,7 @@
+/*
+    Menu for searching for a  product
+*/
+
 package suchen.ui.view;
 
 import java.util.Scanner;
@@ -6,14 +10,15 @@ import java.util.ArrayList;
 import suchen.bl.Ware;
 
 public class SuchControl {
-    Scanner keyboard = new Scanner(System.in);
+    Scanner keyboard;
     SucheWare suchService;
     ArrayList<Ware> suchErgebniss;
     SuchView suchView;
 
     public SuchControl(SucheWare suchWare_){
         suchService = suchWare_;
-        suchErgebniss = new ArrayList<>();      
+        suchErgebniss = new ArrayList<>(); 
+        keyboard = new Scanner(System.in);     
         suchView = new SuchView();
     }
 
@@ -21,14 +26,11 @@ public class SuchControl {
     public ArrayList<Ware> run(){
         
         suchView.menueAnzeigen();
-
         String input = keyboard.nextLine();
     
         try {
             long numInput = Long.parseLong(input);
             if (numInput == 0) {
-                if (suchErgebniss == null)
-                    System.out.println("es ist echt null!");
                 return this.getSuchergebniss();
             }
             suchErgebniss = suchService.sucheWare(numInput);
@@ -38,7 +40,6 @@ public class SuchControl {
         }
 
         suchView.suchergebnissAnzeigen(this.getSuchergebniss());
-
         return this.getSuchergebniss();
     }
 
