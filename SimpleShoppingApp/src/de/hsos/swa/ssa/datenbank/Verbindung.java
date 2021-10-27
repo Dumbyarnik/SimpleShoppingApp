@@ -110,7 +110,6 @@ public class Verbindung implements DataBase {
         return new ArrayList<Ware>();
     }
 
-
     public ArrayList<Ware> selectWareNummer(long nr) {
         // the list that we give back
         ArrayList<Ware> aw = new ArrayList<>();
@@ -143,7 +142,6 @@ public class Verbindung implements DataBase {
         return new ArrayList<Ware>();
     }
 
-
     public ArrayList<Produktinformation> selectProduktInfo(Ware ware) {
 
         ArrayList<Produktinformation> produktinfo_list = new ArrayList<>();
@@ -152,7 +150,7 @@ public class Verbindung implements DataBase {
             Produktinformation tmp_produktinfo = null;
             int i = 1;
             Statement stmt = dbc.createStatement();
-            ResultSet result = stmt.executeQuery("SELECT * from simpleshop.produktinformation" + 
+            ResultSet result = stmt.executeQuery("SELECT * from simpleshop.produktinformation " + 
                 "where ware_warennr = '" + ware.getWarennummer()+ "'");
             
             while(result.next()) {
@@ -166,7 +164,6 @@ public class Verbindung implements DataBase {
         return new ArrayList<Produktinformation>();
      }
   
-
      public ArrayList<Ware> selectWarenBeschreibung(String beschreibung) {
 
         try {
@@ -191,8 +188,6 @@ public class Verbindung implements DataBase {
         }
         return new ArrayList<Ware>();
      }
-  
-
   
      public void selectRepo(WarenRepository w) {
         try {

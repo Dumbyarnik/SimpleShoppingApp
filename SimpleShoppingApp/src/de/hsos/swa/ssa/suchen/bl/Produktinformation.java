@@ -41,8 +41,7 @@ public final class Produktinformation {
 
     @Override
     public String toString() {
-        return "Produktinformation [bezeichnung=" + bezeichnung + 
-            ", id=" + id + ", ware_nr=" + ware_nr + "]";
+        return "Produktinformation [bezeichnung: " + bezeichnung + "]";
     }
 
     
