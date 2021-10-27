@@ -1,3 +1,7 @@
+/*
+    Interface for searching the product
+*/
+
 package suchen.al;
 
 import java.util.ArrayList;

@@ -1,3 +1,7 @@
+/*
+    Interface for getting the informations
+*/
+
 package suchen.al;
 
 import java.util.ArrayList;
