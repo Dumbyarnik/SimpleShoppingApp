@@ -1,7 +1,9 @@
+/*
+    Interface for searching through the database
+*/
 package suchen.bl;
 
 import java.util.ArrayList;
-
 
 public interface Katalog {
    public void legeSuchalgorihtmusFest(SuchAlgorithmus algo);

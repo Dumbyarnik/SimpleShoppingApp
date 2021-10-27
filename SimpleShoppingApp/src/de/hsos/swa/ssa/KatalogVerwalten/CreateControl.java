@@ -48,7 +48,6 @@ public class CreateControl {
     }
 
     private void setWarenname() {
-        System.out.println("this is the line - " + keyboard.nextLine());
         WarenName = keyboard.nextLine();
     }
 
