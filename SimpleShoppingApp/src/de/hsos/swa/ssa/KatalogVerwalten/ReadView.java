@@ -1,13 +1,9 @@
-package KatalogVerwalten;
+package katalogVerwalten;
 
 import java.util.ArrayList;
 import suchen.bl.Ware;
 
 public class ReadView {
-    ReadControl control;
-    
-    public ReadView(){
-    }
 
     public void menueAnzeigen() {
         System.out.println("--------------------------------------------------------");

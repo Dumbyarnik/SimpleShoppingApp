@@ -1,4 +1,8 @@
-package KatalogVerwalten;
+/*
+    First menu in Verwaltung
+*/
+
+package katalogVerwalten;
 
 import java.util.Scanner;
 import datenbank.DataBase;
@@ -29,9 +33,7 @@ public class VerwaltungsControl {
         this.scanner = new Scanner(System.in);
     }
 
-    /*
-    *   Gibt View den Zustand des Controllers Zurück: true => Finish 
-    */
+    
     public void run() {
         int input;
 

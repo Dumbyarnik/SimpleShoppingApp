@@ -1,4 +1,4 @@
-package KatalogVerwalten;
+package katalogVerwalten;
 
 public class DeleteView {
     

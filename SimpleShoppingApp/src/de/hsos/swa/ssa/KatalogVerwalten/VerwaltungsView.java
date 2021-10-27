@@ -1,11 +1,8 @@
-package KatalogVerwalten;
+package katalogVerwalten;
 
 public class VerwaltungsView {
 
-    public VerwaltungsView() {
-    }
-
-   public void run(){
+    public void run(){
         System.out.println("--------------------------------------------------------");
         System.out.println("DB Menue");
         System.out.println("Druecken Sie 0 um zu verlassen");

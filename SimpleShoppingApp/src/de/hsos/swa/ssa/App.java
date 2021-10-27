@@ -3,7 +3,8 @@
 */ 
 
 import java.util.Scanner;
-import KatalogVerwalten.VerwaltungsControl;
+
+import katalogVerwalten.VerwaltungsControl;
 import ui.view.MenueControl;
 
 
