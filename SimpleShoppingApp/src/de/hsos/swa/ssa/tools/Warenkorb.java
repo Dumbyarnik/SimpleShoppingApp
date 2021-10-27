@@ -7,10 +7,11 @@ import suchen.acl.WarenkorbFuerSuche;
 
 public class Warenkorb implements WarenkorbFuerSuche {
     static long warenkorbNummer = 0;
-    ArrayList<WareDTO> inhalt = new ArrayList();
+    ArrayList<WareDTO> inhalt;
 
     public Warenkorb(long warenkorbAnzahl) {
         warenkorbNummer++;
+        inhalt = new ArrayList<WareDTO>();
     }
 
     public Warenkorb() {

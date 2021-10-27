@@ -1,3 +1,7 @@
+/*
+    Interface for all the functions database need
+*/
+
 package datenbank;
 
 import java.util.ArrayList;

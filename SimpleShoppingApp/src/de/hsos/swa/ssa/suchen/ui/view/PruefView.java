@@ -2,7 +2,6 @@ package suchen.ui.view;
 
 
 import java.util.ArrayList;
-import suchen.al.EinkaeuferIn;
 import suchen.bl.Produktinformation;
 import suchen.bl.Ware;
 
