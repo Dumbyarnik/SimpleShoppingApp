@@ -12,7 +12,6 @@ public class ReadView {
     public void menueAnzeigen() {
         System.out.println("--------------------------------------------------------");
         System.out.println("Warensuche");
-        System.out.println("Druecken Sie 0 um zurueck zu gehen");
         System.out.println("Geben Sie eine Suchbegriff oder Warennummer zum suchen ein");
     }
 

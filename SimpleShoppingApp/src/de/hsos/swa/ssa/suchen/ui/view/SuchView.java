@@ -15,8 +15,10 @@ public class SuchView {
         System.out.println("Geben Sie eine Suchbegriff oder Warennummer zum suchen ein");
     }
 
-    public void suchergebnissAnzeigen(ArrayList<Ware> waren) {        
-        if (waren.size() == 0) {
+    public void suchergebnissAnzeigen(ArrayList<Ware> waren) {
+        if (waren == null)
+            System.out.println("es ist null!");          
+        if (waren.isEmpty()) {
             wareUnbekanntAnzeigen();
         }
         

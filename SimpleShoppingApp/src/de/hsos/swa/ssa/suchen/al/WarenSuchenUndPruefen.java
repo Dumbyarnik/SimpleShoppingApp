@@ -12,17 +12,23 @@ public class WarenSuchenUndPruefen {
 
     public WarenSuchenUndPruefen(){
         if(katalog == null)
-            this.katalog = new WarenRepository();
+            WarenSuchenUndPruefen.katalog = new WarenRepository();
     }
     public ArrayList<Produktinformation> sucheProduktInfo(Ware ware){
         return katalog.gebeProduktinformation(ware);
     } 
     
     public ArrayList<Ware> suchenPruefen(long warenNummer){
-        return this.katalog.suchen(warenNummer);
+        if (WarenSuchenUndPruefen.katalog.suchen(warenNummer) == null)
+            return new ArrayList<Ware>();
+
+        return WarenSuchenUndPruefen.katalog.suchen(warenNummer);
     }
-    public ArrayList<Ware> suchenPruefen(String warenname){
-        return this.katalog.suchen(warenname);
+    public ArrayList<Ware> suchenPruefen(String warenName){
+        if (WarenSuchenUndPruefen.katalog.suchen(warenName) == null)
+            return new ArrayList<Ware>();
+
+        return WarenSuchenUndPruefen.katalog.suchen(warenName);
     }
 }
 

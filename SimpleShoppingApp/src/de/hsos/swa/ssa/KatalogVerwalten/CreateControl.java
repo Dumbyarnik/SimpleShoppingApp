@@ -20,7 +20,6 @@ public class CreateControl {
     }
 
     public void run(){
-        System.out.println("Druecken sie 0 um zurück zu gehen");
         System.out.println("Bitte Warenname eingaben:");
         this.setWarenname();
 
@@ -43,19 +42,20 @@ public class CreateControl {
         db.insert(args);
     }
 
-	public void setWarenBeschreibung() {
-        WarenBeschreibung = keyboard.nextLine();
-	}
-
-    public void setWarenname() {
+    private void setWarenname() {
+        System.out.println("this is the line - " + keyboard.nextLine());
         WarenName = keyboard.nextLine();
     }
 
-	public void setWarenTyp() {
+	private void setWarenBeschreibung() {
+        WarenBeschreibung = keyboard.nextLine();
+	}
+
+	private void setWarenTyp() {
         WarenTyp = keyboard.nextLine();
 	}
 
-    public void setWarenPreis() {
+    private void setWarenPreis() {
         while(keyboard.hasNext() && !keyboard.hasNextDouble()) {
             keyboard.nextLine();
         }

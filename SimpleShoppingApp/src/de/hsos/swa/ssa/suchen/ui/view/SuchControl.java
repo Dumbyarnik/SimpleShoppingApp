@@ -12,9 +12,9 @@ public class SuchControl {
     SuchView suchView;
 
     public SuchControl(SucheWare suchWare_){
-         suchService = suchWare_;
-         suchErgebniss = new ArrayList<>();
-         suchView = new SuchView();
+        suchService = suchWare_;
+        suchErgebniss = new ArrayList<>();      
+        suchView = new SuchView();
     }
 
     
@@ -27,6 +27,8 @@ public class SuchControl {
         try {
             long numInput = Long.parseLong(input);
             if (numInput == 0) {
+                if (suchErgebniss == null)
+                    System.out.println("es ist echt null!");
                 return this.getSuchergebniss();
             }
             suchErgebniss = suchService.sucheWare(numInput);

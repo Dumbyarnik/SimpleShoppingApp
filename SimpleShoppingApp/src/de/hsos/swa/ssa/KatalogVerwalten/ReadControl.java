@@ -28,11 +28,12 @@ public class ReadControl {
         String input = keyboard.nextLine();
         
         try {
-            long numInput = Long.parseLong(input);
-            if (numInput == 0) {
-                return this.getSuchergebniss();
-            }
-            suchErgebnis = db.selectWareNummer(numInput);
+                long numInput = Long.parseLong(input);
+                if (numInput == 0) {
+                    return this.getSuchergebniss();
+                }
+
+                suchErgebnis = db.selectWareNummer(numInput);
             }
             catch (NumberFormatException e) { 
                 suchErgebnis = db.selectWarenName(input); 

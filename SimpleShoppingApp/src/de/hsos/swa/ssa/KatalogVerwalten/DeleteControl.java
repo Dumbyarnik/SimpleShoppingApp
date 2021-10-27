@@ -16,7 +16,8 @@ public class DeleteControl {
     }
     
     public void run(){
-        deleteView.menueAnzeigen();
+        //deleteView.menueAnzeigen();
+        System.out.println("Bitte Warennummer eingeben:");
 
         while(keyboard.hasNext() && !keyboard.hasNextInt()) {
             keyboard.nextLine();
