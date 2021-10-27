@@ -30,6 +30,6 @@ public class ReadView {
     }
 
     private void wareUnbekanntAnzeigen() {
-        System.out.println("Leider konnte kein Produkt zu ihrer Suchanfrage gefunden werden :(");
+        System.out.println("Leider konnte kein Produkt zu ihrer Suchanfrage gefunden werden !");
     }
 }

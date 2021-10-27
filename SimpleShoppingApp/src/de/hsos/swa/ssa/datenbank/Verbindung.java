@@ -15,10 +15,7 @@ import suchen.dal.WarenRepository;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-/*
-    Connecting to: jdbc:mysql://localhost:3306/simpleshop?user=root&password=test&serverTimezone=UTC
-    java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/simpleshop?user=root&password=test&serverTimezone=UTC
-*/
+
 
 public class Verbindung implements DataBase {
     // hier bitte link zur Datenbank eingeben

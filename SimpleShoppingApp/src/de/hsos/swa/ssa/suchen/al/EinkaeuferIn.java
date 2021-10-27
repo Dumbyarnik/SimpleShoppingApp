@@ -53,4 +53,8 @@ public class EinkaeuferIn implements HoleWarenkorb, PruefeWare, SucheWare, Waehl
         warenkorb = warenkorbVerwaltung.holeWarenkorb(warenkorbnummer);
         return warenkorb;
     }
+
+    public void printInhalt(){
+      this.warenkorb.printInhalt();
+    }
 }
