@@ -5,7 +5,6 @@ import suchen.bl.Katalog;
 import suchen.bl.Produktinformation;
 import suchen.bl.SuchAlgorithmus;
 import suchen.bl.Ware;
-//import datenbank.DataBase;
 import datenbank.Verbindung;
 
 public class WarenRepository implements Katalog {
@@ -13,8 +12,8 @@ public class WarenRepository implements Katalog {
     private ArrayList<Integer> warenreponr;
     private ArrayList<String> warenreponame;
     private ArrayList<String> warenrepo_beschreibung;
-
     private WarenSuche suchAlgorithmus;
+
     public WarenRepository() {
         suchAlgorithmus = new KeywordMatching(base);
     }
@@ -27,18 +26,6 @@ public class WarenRepository implements Katalog {
         }
     }
 
-/*
-    public WarenRepository(Verbindung _base) {
-        this.base = _base;
-        this.warenreponr = new ArrayList<>();
-        this.warenreponame = new ArrayList<>();
-        this.warenrepo_beschreibung = new ArrayList<>();
-        selectRepo(this);
-
-        suchAlgorithmus = new KeywordMatching(); // toDo?! arrayList?! return WareDTO?!
-    }*/
-
-    WarenSuche algorithm=new KeywordMatching(base);
     public static void selectRepo(WarenRepository w) {
         base.selectRepo(w);
     }
@@ -49,18 +36,18 @@ public class WarenRepository implements Katalog {
     public ArrayList<Ware> suchen(long warenNummer){
         return base.selectWareNummer(warenNummer);
     }
+
     public ArrayList<Produktinformation> gebeProduktinformation(Ware ware){
-        ArrayList<Produktinformation> a = base.selectProduktInfo(ware);
-            System.out.println("Produktinformation: " + a.toString());    
+        ArrayList<Produktinformation> a = base.selectProduktInfo(ware);    
         return a;
-
-
     }   
 
 
     @Override
     public String toString() {
-        return  ", warenrepo_beschreibung=" + warenrepo_beschreibung + ", warenreponame=" + warenreponame + ", warenreponr=" + warenreponr + "]";
+        return  ", warenrepo_beschreibung=" 
+        + warenrepo_beschreibung + ", warenreponame=" 
+        + warenreponame + ", warenreponr=" + warenreponr + "]";
     }
 
     public ArrayList<Integer> getWarenreponr() {

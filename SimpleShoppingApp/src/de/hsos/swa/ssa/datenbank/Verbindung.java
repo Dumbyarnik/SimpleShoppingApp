@@ -70,87 +70,50 @@ public class Verbindung implements DataBase {
 
     public ArrayList<Ware> selectWarenName(String name) {
         Ware w = null;
+
         try {
             ArrayList<Ware> aw = new ArrayList<>();
-            // ArrayList<Ware> waren = new ArrayList<>();
             Statement stmt = dbc.createStatement();
             int i = 1;
-
             ResultSet result = stmt.executeQuery("select * from simpleshop.ware where warenname= '" + name + "'");
 
             while (result.next()) {
-                /*
-                 * for(int i = 1; i <= result.getMetaData().getColumnCount(); i++) {
-                 * System.out.println("Column Name: " + result.getMetaData().getColumnName(i) +
-                 * " Value: " +result.getObject(i)); }
-                 */
-
-               // w = new Ware((long) result.getObject(i), (String) result.getObject(i + 1),(String) result.getObject(i + 2), (String) result.getObject(i + 3));
-
-
                 String bg = (String)result.getObject(i+4);
                 double d = Double.parseDouble(bg);//.doubleValue();
-                System.out.println("Suche Warenname: " + name);
                 w = new Ware((int)result.getObject(i), (String)result.getObject(i+1), (String)result.getObject(i+2), (String)result.getObject(i+3), d, (int)result.getObject(i+6));
                 aw.add(w);          
-
-                System.out.println("Warenname: " + name);
-                System.out.println("beschreibung: " + w.getBeschreibung());
             }
-            
-            System.out.println("");
             return aw;
         } catch (SQLException se) {
             System.out.println(se);
         }
-        return null;
+        return new ArrayList<Ware>();
     }
 
 
     public ArrayList<Ware> selectWareNummer(long nr) {
         try {
-           Ware w = null;
-           ArrayList<Ware> aw = new ArrayList<>();
-           Statement stmt = dbc.createStatement();
-           int i = 1;
-           ResultSet result = stmt.executeQuery("SELECT * from simpleshop.ware where warennr = '" + nr + "'");
-           while(result.next()) {
-              String bg = (String)result.getObject(i+4);
-              double d = Double.parseDouble(bg);
-              System.out.println("Suche Warennr: " + nr);
-              w = new Ware((int)result.getObject(i), (String)result.getObject(i+1), (String)result.getObject(i+2), (String)result.getObject(i+3), d, (int)result.getObject(i+6));
-              aw.add(w);
-              System.out.println("");
-              return aw;          
-           }
-           System.out.println("");
-           return null;
+            Ware w = null;
+            ArrayList<Ware> aw = new ArrayList<>();
+            Statement stmt = dbc.createStatement();
+            int i = 1;
+            ResultSet result = stmt.executeQuery("SELECT * from simpleshop.ware where warennr = '" + nr + "'");
+            while(result.next()) {
+                String bg = (String)result.getObject(i+4);
+                double d = Double.parseDouble(bg);
+                System.out.println("Suche Warennr: " + nr);
+                w = new Ware((int)result.getObject(i), (String)result.getObject(i+1), (String)result.getObject(i+2), (String)result.getObject(i+3), d, (int)result.getObject(i+6));
+                aw.add(w);
+                System.out.println("");
+                return aw;          
+            }
+            System.out.println("");
+            return new ArrayList<Ware>();
         } catch (SQLException se) {
            System.out.println(se);
         }
-        return null;
+        return new ArrayList<Ware>();
     }
-
-    /*
-    public static void selectProduktInfo(Ware ware) {
-        try (Connection dbc = connect()) {
-            Produktinformation w;
-            Statement stmt = dbc.createStatement();
-            ResultSet result = stmt.executeQuery(
-                    "select * from simpleshop.produktinformation where ware_warennr= '" + ware.getWarennummer() + "'");
-            int i = 1;
-            while (result.next()) {
-
-                // w= new Ware((int)result.getObject(i), (String)result.getObject(i+1),
-                // (String)result.getObject(i+2), (String)result.getObject(i+3),
-                // (int)result.getObject(i+4));
-                // System.out.println("WarenInfo: ", w.info);
-            }
-        } catch (SQLException se) {
-            System.out.println(se);
-        }
-    }
-*/
 
     public ArrayList<Produktinformation> selectProduktInfo(Ware ware) {
         try {
@@ -161,8 +124,7 @@ public class Verbindung implements DataBase {
            int i = 1;
            ResultSet result = stmt.executeQuery("SELECT * from simpleshop.produktinformation where ware_warennr = '" + ware.getWarennummer()+ "'");
            while(result.next()) {
-              System.out.println("Suche Produktinformation warennr: " + ware.getWarennummer());
-              // Produktinformation(int _id, String  _neueBezeichnung, int _ware_nr)
+              //System.out.println("Suche Produktinformation warennr: " + ware.getWarennummer());
               p = new Produktinformation((int)result.getObject(i), (String)result.getObject(i+1), (int)result.getObject(i+2));
               aw.add(p);          
            }
@@ -171,7 +133,7 @@ public class Verbindung implements DataBase {
         } catch (SQLException se) {
            System.out.println(se);
         }
-        return null;
+        return new ArrayList<Produktinformation>();
      }
   
 
@@ -197,7 +159,7 @@ public class Verbindung implements DataBase {
         } catch (SQLException se) {
            System.out.println(se);
         }
-        return null;
+        return new ArrayList<Ware>();
      }
   
 
@@ -223,32 +185,6 @@ public class Verbindung implements DataBase {
         }
      }
 
-
-    /*
-    public static void select(String arg) {
-        try (Connection dbc = connect()) {
-            Statement stmt = dbc.createStatement();
-            // ResultSet result = stmt.executeQuery("SELECT ware_warennr from
-            // simpleshop.warenrepository JOIN simpleshop.ware ON
-            // warenrepository.ware_warennr = ware.warennr WHERE ware.warenname =
-            // '"+arg+"'");
-            ResultSet result = stmt.executeQuery(
-                    "select * from simpleshop.warenrepository w1, simpleshop.ware w2 where w1.ware_warennr = w2.warennr");
-            // ResultSet result = stmt.executeQuery("SELECT * from simpleshop.user");
-            while (result.next()) {
-                for (int i = 1; i <= result.getMetaData().getColumnCount(); i++) {
-                    System.out.println(
-                            "Column Name: " + result.getMetaData().getColumnName(i) + " Value: " + result.getObject(i));
-                }
-
-                System.out.println();
-            }
-        } catch (SQLException se) {
-            System.out.println(se);
-        }
-    }
-    */
-
     public void insert(String[] args) {
         System.out.println("insert");
         try {
@@ -262,12 +198,6 @@ public class Verbindung implements DataBase {
             ppStmt.setString(6, "EUR"); //einheit - the one and only
             ppStmt.setString(7, args[6]); //RepoNr
             ppStmt.execute();
-
-            /*
-            PreparedStatement ppStmt2 = dbc.prepareStatement("INSERT INTO simpleshop.produktinformation VALUES (?,?,?)");
-            ppStmt2.setString(1, args[1]);
-            ppStmt2.setString(2, args[8]);
-            ppStmt2.setString(3, args[9]);*/
         } catch (SQLException se) {
             System.out.println(se);
         }
@@ -286,12 +216,6 @@ public class Verbindung implements DataBase {
     }
 
     public void update(String[] args) {
- 
-
-        // Second SQL UPDATE Query to update record.
-       // String query2 = "Update MyTable2 Set FirstName='Bradly' where age = '53'";
-
-        // Third SQL SELECT Query to retrieve updated records.
 
         try {
             dbc.setAutoCommit(false);
@@ -313,26 +237,6 @@ public class Verbindung implements DataBase {
             String query6 = "Update simpleshop.ware Set ware_einheit= '"+ args[6] +"' Where warennr = '"+ args[0]+"'";
             Statement stmt6 = dbc.createStatement();
             stmt6.executeUpdate(query6);
-/*
-            Statement stmt = dbc.createStatement();
-            int count = stmt.executeUpdate(ppStmt2);
-            System.out.println("Number of rows updated by executing query1 =  " + count);
-
-            // Executing SQL SELECT query using executeQuery() method of Statement object.
-            String query99 = "SELECT * FROM simpleshop.ware";
-            ResultSet rs = stmt.executeQuery(query99);
-            System.out.println("Result of executing query3 to display updated records");
-            //System.out.println("ID " + "\t" + "FirstName" + "\t" + "LastName" + "\t" + "Age");
-
-            // looping through the number of row/rows retrieved after executing SELECT
-            // query3
-            while (rs.next()) {
-                System.out.print(rs.getString("warenname") + "\t");
-                System.out.print(rs.getString("ware_beschreibung") + "\t" + "\t");
-                System.out.print(rs.getString("ware_typ") + "\t" + "\t");
-                System.out.println(rs.getString("ware_preis") + "\t");
-                System.out.println(rs.getString("ware_einheit") + "\t");
-            }*/
 
         } catch (SQLException se) {
             System.out.println(se);
