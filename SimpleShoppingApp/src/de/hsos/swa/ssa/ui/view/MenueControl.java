@@ -17,18 +17,18 @@ public class MenueControl {
     *   Gibt View den Zustand des Controllers Zurück: true => Finish 
     */
     public void run() {
-        boolean finish = false;
         int input;
 
-        menueView.run();
+        
 
-        input = scanner.nextInt();
+        while(true){
 
-        while(!finish){
+            menueView.run();
+            input = scanner.nextInt();
+
             switch(input){
                 case(0):
-                    finish = true;
-                    break;
+                    return;
                 case(1):
                     //suchenStartView.run();
                     suchenStartControl.run();

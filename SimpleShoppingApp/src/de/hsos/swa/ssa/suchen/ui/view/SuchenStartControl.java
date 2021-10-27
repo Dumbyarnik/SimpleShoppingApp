@@ -35,24 +35,19 @@ public class SuchenStartControl {
         this.keyboard = new Scanner(System.in);
     }
 
-    /*
-    *   Gibt View den Zustand des Controllers zurück: true => Finish 
-    */
+    
     public void run(){
-        boolean finish = false;
         int input; 
 
-        while (!finish){
+        while (true){
 
             // showing the menu 
             suchenStartView.run(this.hasSuchdaten());
-        
             input = keyboard.nextInt();
 
             switch(input) {
                 case(0):
-                    finish = true;
-                    break;
+                    return;
                 case(1):
                     data = suchControl.run();
                     break;
@@ -68,7 +63,6 @@ public class SuchenStartControl {
                     break;
             }
         }
-        //return finish;
     }
 
     public boolean hasSuchdaten() {

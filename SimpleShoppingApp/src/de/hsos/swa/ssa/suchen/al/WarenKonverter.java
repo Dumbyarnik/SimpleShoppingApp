@@ -6,7 +6,7 @@ import suchen.bl.Ware;
 public class WarenKonverter {
 
     public WarenKonverter(){
-        System.out.println("WarenKonverter");
+        //System.out.println("WarenKonverter");
     }
     public WareDTO wareToDto (Ware ware){
         if (ware == null) {

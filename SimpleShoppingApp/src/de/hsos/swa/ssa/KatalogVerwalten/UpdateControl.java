@@ -23,7 +23,6 @@ public class UpdateControl {
 
     public void run(){
 
-        System.out.println("Druecken sie 0 um zurück zu gehen");
         System.out.println("Bitte zu aendernde WarenNummer eingeben:");
         this.setWarenNummer();
         System.out.println("Bitte Warenname eingeben:");
