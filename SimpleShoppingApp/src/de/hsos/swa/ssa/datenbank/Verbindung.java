@@ -24,7 +24,6 @@ public class Verbindung implements DataBase {
     // hier bitte link zur Datenbank eingeben
     //private static String CONN = "jdbc:mysql://localhost:3306/SimpleShop"; 
     
-
     // Logins
     static final String USER = "root"; // hier User
     static final String PASS = "root"; // hier Passwort
@@ -54,19 +53,33 @@ public class Verbindung implements DataBase {
     }
 
 
-    public void selectWaren() {
+    public ArrayList<Ware> selectWaren() {
+
+        ArrayList<Ware> ware_list = new ArrayList<Ware>();
+
         try {
+            Ware tmp_ware = null;
+            int i = 1;
+
             Statement stmt = dbc.createStatement();
             ResultSet result = stmt.executeQuery("select * from simpleshop.ware");
             while (result.next()) {
-                for (int i = 1; i <= result.getMetaData().getColumnCount(); i++) {
-                    //System.out.println(result.getMetaData().getColumnName(i) + ": " + result.getObject(i));
-                }
+                String bg = (String)result.getObject(i+4);
+                double d = Double.parseDouble(bg);
+                tmp_ware = new Ware((int)result.getObject(i), 
+                    (String)result.getObject(i+1), 
+                    (String)result.getObject(i+2), 
+                    (String)result.getObject(i+3), 
+                    d, (int)result.getObject(i+6));
+                ware_list.add(tmp_ware);
             }
+            return ware_list;
         } 
         catch (SQLException se) {
             System.out.println(se);
         }
+
+        return ware_list;
     }
 
     public ArrayList<Ware> selectWarenName(String name) {
