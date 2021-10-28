@@ -41,7 +41,7 @@ public final class Produktinformation {
 
     @Override
     public String toString() {
-        return "Produktinformation [bezeichnung: " + bezeichnung + "]";
+        return "Produktinformation [" + bezeichnung + "]";
     }
 
     
