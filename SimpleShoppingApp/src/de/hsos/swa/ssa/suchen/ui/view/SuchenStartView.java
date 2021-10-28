@@ -16,6 +16,8 @@ public class SuchenStartView {
          System.out.println("Druecken sie 3 um  Waren zum Warenkorb hinzuzufuegen");
       }
       System.out.println("Druecken sie 4 um den Inhalt des Warenkorbs zu sehen");
+      System.out.println("Druecken sie 5 um nach dem Namen der Ware zu suchen");
+      System.out.println("Druecken sie 6 um nach dem Typ der Ware zu suchen");
    } 
 }
 

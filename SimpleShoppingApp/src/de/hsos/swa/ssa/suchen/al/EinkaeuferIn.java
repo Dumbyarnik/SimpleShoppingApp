@@ -57,4 +57,12 @@ public class EinkaeuferIn implements HoleWarenkorb, PruefeWare, SucheWare, Waehl
     public void printInhalt(){
       this.warenkorb.printInhalt();
     }
+
+    public void keywordAlgorithmus(){
+        suchPruefService.keywordAlgorithmus();
+    }
+
+    public void SemanticAlgorithmus(){
+        suchPruefService.SemanticAlgorithmus();
+    }
 }
