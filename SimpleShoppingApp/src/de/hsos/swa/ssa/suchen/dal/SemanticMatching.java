@@ -11,7 +11,7 @@ public class SemanticMatching implements WarenSuche {
         this.base=_base;
     }
 
-    public ArrayList <Ware> sucheWare(String suchbegriff){
-        return base.selectWarenBeschreibung(suchbegriff);
+    public ArrayList <Ware> sucheWare(String typ){
+        return base.selectWarenTyp(typ);
     }
 }

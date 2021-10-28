@@ -107,6 +107,35 @@ public class Verbindung implements DataBase {
         return new ArrayList<Ware>();
     }
 
+    public ArrayList<Ware> selectWarenTyp(String typ) {
+        // the list that we give back
+        ArrayList<Ware> ware_list = new ArrayList<>();
+
+        try {
+            // tmp variable for Ware
+            Ware tmp_ware = null;
+            Statement statement = dbc.createStatement();
+            int i = 1;
+            ResultSet result = statement.executeQuery("select * from simpleshop.ware where ware_typ= '" 
+                + typ + "'");
+
+            while (result.next()) {
+                String bg = (String)result.getObject(i+4);
+                double d = Double.parseDouble(bg);
+                tmp_ware = new Ware((int)result.getObject(i), 
+                    (String)result.getObject(i+1), 
+                    (String)result.getObject(i+2), 
+                    (String)result.getObject(i+3), 
+                    d, (int)result.getObject(i+6));
+                ware_list.add(tmp_ware);          
+            }
+            return ware_list;
+        } catch (SQLException se) {
+            System.out.println(se);
+        }
+        return new ArrayList<Ware>();
+    }
+
     public ArrayList<Ware> selectWareNummer(long nr) {
         // the list that we give back
         ArrayList<Ware> aw = new ArrayList<>();
@@ -161,30 +190,30 @@ public class Verbindung implements DataBase {
         return new ArrayList<Produktinformation>();
      }
   
-     public ArrayList<Ware> selectWarenBeschreibung(String beschreibung) {
+    public ArrayList<Ware> selectWarenBeschreibung(String beschreibung) {
 
         try {
-           Ware w = null;
-           ArrayList<Ware> aw = new ArrayList<>();
-           System.out.println("");
-           Statement stmt = dbc.createStatement();
-           int i = 1;
-           ResultSet result = stmt.executeQuery("SELECT * from simpleshop.ware where ware_beschreibung = '" + beschreibung + "'");
-           while(result.next()) {
-              w = new Ware((int)result.getObject(i), (String)result.getObject(i+1), (String)result.getObject(i+2), (String)result.getObject(i+3), (double)result.getObject(i+4), (int)result.getObject(i+6));
-              aw.add(w);
-              System.out.println("");
-              return aw;                  
-           }
-           System.out.println("");
-           return aw;
-        } catch (SQLException se) {
-           System.out.println(se);
+            Ware w = null;
+            ArrayList<Ware> aw = new ArrayList<>();
+            System.out.println("");
+            Statement stmt = dbc.createStatement();
+            int i = 1;
+            ResultSet result = stmt.executeQuery("SELECT * from simpleshop.ware where ware_beschreibung = '" + beschreibung + "'");
+            while(result.next()) {
+                w = new Ware((int)result.getObject(i), (String)result.getObject(i+1), (String)result.getObject(i+2), (String)result.getObject(i+3), (double)result.getObject(i+4), (int)result.getObject(i+6));
+                aw.add(w);
+                System.out.println("");
+                return aw;                  
+            }
+            System.out.println("");
+            return aw;
+            } catch (SQLException se) {
+            System.out.println(se);
         }
         return new ArrayList<Ware>();
-     }
+    }
   
-     public void selectRepo(WarenRepository w) {
+    public void selectRepo(WarenRepository w) {
         try {
   
            System.out.println("");
@@ -258,8 +287,8 @@ public class Verbindung implements DataBase {
         } catch (SQLException se) {
             System.out.println(se);
         }
+    
+
+
     }
-
-
-
 }
