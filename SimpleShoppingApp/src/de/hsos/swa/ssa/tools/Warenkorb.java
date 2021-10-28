@@ -21,7 +21,7 @@ public class Warenkorb implements WarenkorbFuerSuche {
     public void wareHinzufuegen(WareDTO ware) {
         inhalt.add(ware);
     
-        this.printInhalt();
+        //this.printInhalt();
     }
 
     @Override
@@ -29,10 +29,14 @@ public class Warenkorb implements WarenkorbFuerSuche {
         return warenkorbNummer;
     }
 
-    private void printInhalt(){
+    public void printInhalt(){
+        int counter=0;
         for (WareDTO tmp : inhalt){
-            System.out.println(tmp.getName());
+            counter++;
+            System.out.println(tmp.toString());
         }
+        if(counter==0)
+        System.out.println("Warenkorb ist leer");
     }
 
 

@@ -13,8 +13,9 @@ public class SuchenStartView {
       
       if (hasDaten) {
          System.out.println("Druecken sie 2 um Detailsinformationen zu Waren abzurufen");
-         System.out.println("Druecken sie 3 um zu Waren zum Warenkorb hinzuzufuegen");
+         System.out.println("Druecken sie 3 um  Waren zum Warenkorb hinzuzufuegen");
       }
+      System.out.println("Druecken sie 4 um den Inhalt des Warenkorbs zu sehen");
    } 
 }
 

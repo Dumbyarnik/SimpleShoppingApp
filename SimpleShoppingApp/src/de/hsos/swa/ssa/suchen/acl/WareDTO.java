@@ -18,4 +18,9 @@ public class WareDTO {
         return this.name;
     }
 
+  public String toString(){
+
+    return this.name+":" + this.preis +"$ " + this.beschreibung ;
+  }
+
 }

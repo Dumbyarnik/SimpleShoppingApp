@@ -9,6 +9,7 @@ import suchen.al.EinkaeuferIn;
 import suchen.al.HoleWarenkorb;
 import java.util.ArrayList;
 import suchen.bl.Ware;
+import tools.Warenkorb;
 
 public class SuchenStartControl {
 
@@ -60,8 +61,11 @@ public class SuchenStartControl {
                 case(3):
                     if (hasSuchdaten()) {
                         auswahlControl.run(data);
+                        break;
                     }
-                    break;
+                case(4):
+                 this.einkaeuferIn.printInhalt();
+                    break;    
             }
         }
     }
