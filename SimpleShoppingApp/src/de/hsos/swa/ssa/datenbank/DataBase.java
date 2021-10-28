@@ -15,6 +15,7 @@ public interface DataBase {
     public void commit();
     public ArrayList<Ware> selectWaren();
     public ArrayList<Ware> selectWarenName(String name);
+    public ArrayList<Ware> selectWarenTyp(String typ);
     public ArrayList<Ware> selectWareNummer(long nr);
     public ArrayList<Produktinformation> selectProduktInfo(Ware ware);
     public ArrayList<Ware> selectWarenBeschreibung(String beschreibung);

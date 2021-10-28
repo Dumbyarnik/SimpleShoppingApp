@@ -9,7 +9,6 @@ import suchen.al.EinkaeuferIn;
 import suchen.al.HoleWarenkorb;
 import java.util.ArrayList;
 import suchen.bl.Ware;
-import tools.Warenkorb;
 
 public class SuchenStartControl {
 
@@ -64,7 +63,13 @@ public class SuchenStartControl {
                         break;
                     }
                 case(4):
-                 this.einkaeuferIn.printInhalt();
+                    this.einkaeuferIn.printInhalt();
+                    break; 
+                case(5):
+                    this.einkaeuferIn.keywordAlgorithmus();
+                    break; 
+                case(6):
+                    this.einkaeuferIn.SemanticAlgorithmus();
                     break;    
             }
         }

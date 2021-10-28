@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import suchen.bl.Katalog;
 import suchen.bl.Ware;
 import suchen.bl.Produktinformation;
+import suchen.bl.SuchAlgorithmus;
 import suchen.dal.WarenRepository;
 
 
@@ -17,6 +18,8 @@ public class WarenSuchenUndPruefen {
     public WarenSuchenUndPruefen(){
         if(katalog == null)
             WarenSuchenUndPruefen.katalog = new WarenRepository();
+        
+        katalog.legeSuchalgorihtmusFest(SuchAlgorithmus.KeywordMatching);
     }
     
     public ArrayList<Produktinformation> sucheProduktInfo(Ware ware){
@@ -34,6 +37,16 @@ public class WarenSuchenUndPruefen {
             return new ArrayList<Ware>();
 
         return WarenSuchenUndPruefen.katalog.suchen(warenName);
+    }
+
+    public void keywordAlgorithmus(){
+        WarenSuchenUndPruefen.katalog
+            .legeSuchalgorihtmusFest(SuchAlgorithmus.KeywordMatching);
+    }
+
+    public void SemanticAlgorithmus(){
+        WarenSuchenUndPruefen.katalog
+            .legeSuchalgorihtmusFest(SuchAlgorithmus.SemanticMatching);
     }
 }
 
