@@ -171,8 +171,6 @@ public class Verbindung implements DataBase {
            int i = 1;
            ResultSet result = stmt.executeQuery("SELECT * from simpleshop.ware where ware_beschreibung = '" + beschreibung + "'");
            while(result.next()) {
-              //System.out.println("Suche Produktbeschreibung warennr: " + beschreibung);
-              // Produktinformation(int _id, String  _neueBezeichnung, int _ware_nr)
               w = new Ware((int)result.getObject(i), (String)result.getObject(i+1), (String)result.getObject(i+2), (String)result.getObject(i+3), (double)result.getObject(i+4), (int)result.getObject(i+6));
               aw.add(w);
               System.out.println("");
@@ -195,7 +193,6 @@ public class Verbindung implements DataBase {
            ResultSet result = stmt.executeQuery("SELECT * from simpleshop.warenrepository ");
            while(result.next()) {
               System.out.println("selectRepo");
-             // public WarenRepository(int _warenreponr, String _warenreponame, String _warenrepo_beschreibung){
                 w.setWarenreponr((Integer)result.getObject(i));
                 w.setWarenreponame((String)result.getObject(i+1));
                 w.setWarenrepo_beschreibung((String)result.getObject(i+2));
